@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  triviaURL: 'https://the-trivia-api.com/api/',
+  databaseURL: 'https://trivia-8125.restdb.io/rest/highscores',
+  databaseKey: '14284f7472d167d9ccb5dfe612e77321e9edb',
 };
 
 /*

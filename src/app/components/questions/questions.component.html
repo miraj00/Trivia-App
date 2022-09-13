@@ -1,1 +1,30 @@
-<p>questions works!</p>
+<div *ngIf="userName && !showHighScores">
+  <h1>{{ userName }}</h1>
+  <h4>Right Answers: {{ playerRightAnswers }}</h4>
+  <h3>Player Score: {{ playerScore }}</h3>
+  <div *ngFor="let question of questions; index as i">
+    <div *ngIf="!answeredQuestions.has(i)">
+      <div>
+        <h1>{{ question.question }}</h1>
+        <h2>{{ question.category }}</h2>
+      </div>
+      <div>
+        <button (click)="getSelectedResult(question.correctAnswer, i)">
+          {{ question.correctAnswer }}
+        </button>
+        <button
+          *ngFor="let answer of question.incorrectAnswers"
+          (click)="getSelectedResult(answer, i)"
+        >
+          {{ answer }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <button (click)="submitScore()">Submit Score</button>
+</div>
+<high-scores
+  *ngIf="showHighScores"
+  [userName]="userName"
+  [playerScore]="playerScore"
+></high-scores>

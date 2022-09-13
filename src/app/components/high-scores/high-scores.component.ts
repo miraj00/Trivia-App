@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-high-scores',
+  selector: 'high-scores',
   templateUrl: './high-scores.component.html',
-  styleUrls: ['./high-scores.component.css']
+  styleUrls: ['./high-scores.component.css'],
 })
 export class HighScoresComponent implements OnInit {
+  @Input() userName: string | undefined;
+  @Input() playerScore: number | undefined;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
