@@ -1,0 +1,23 @@
+.home-container {
+  @apply w-[100%];
+}
+
+.title-container {
+  @apply font-extrabold h-16 m-16 text-transparent text-6xl bg-clip-text bg-gradient-to-br from-pink-300 to-purple-900 shadow-[0_35px_60px_-15px_rgba(125,0,145,1)] rounded-2xl;
+}
+
+.form-container {
+  @apply w-56 mx-auto;
+}
+
+.form-error {
+  @apply text-red-600 text-xs;
+}
+
+.main-button {
+  @apply my-5 bg-fuchsia-700 w-[100%] text-slate-200;
+}
+
+.main-button:hover {
+  @apply text-white bg-gradient-to-br from-pink-300;
+}

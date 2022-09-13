@@ -1,13 +1,14 @@
-<div *ngIf="!userName">
-  <div>
-    <h1>{{ title }}</h1>
-  </div>
+<div class="home-container">
+  <h1 class="title-container">{{ title }}</h1>
 
-  <div>
-    <form [formGroup]="triviaForm" (ngSubmit)="startTrivia()">
-      <div>
-        <label
-          >Username
+  <div *ngIf="!userName">
+    <div>
+      <form
+        class="form-container"
+        [formGroup]="triviaForm"
+        (ngSubmit)="startTrivia()"
+      >
+        <label>
           <input
             type="text"
             placeholder="Your user name"
@@ -15,6 +16,7 @@
           />
         </label>
         <div
+          class="form-error"
           *ngIf="
             !triviaForm.get('userName')?.valid &&
             triviaForm.get('userName')?.touched
@@ -22,8 +24,7 @@
         >
           Please add user name
         </div>
-      </div>
-      <div>
+
         <select name="category" formControlName="category">
           <option selected hidden>Select Category</option>
           <option *ngFor="let category of categories">
@@ -31,6 +32,7 @@
           </option>
         </select>
         <div
+          class="form-error"
           *ngIf="
             !triviaForm.get('category')?.valid &&
             triviaForm.get('category')?.touched
@@ -38,8 +40,7 @@
         >
           Select valid category
         </div>
-      </div>
-      <div>
+
         <select name="difficulty" formControlName="difficulty">
           <option selected hidden>Select Difficulty</option>
           <option *ngFor="let difficulty of difficulties">
@@ -47,6 +48,7 @@
           </option>
         </select>
         <div
+          class="form-error"
           *ngIf="
             !triviaForm.get('difficulty')?.valid &&
             triviaForm.get('difficulty')?.touched
@@ -54,13 +56,17 @@
         >
           Select valid difficulty
         </div>
-      </div>
-      <div>
-        <button type="submit" [disabled]="!triviaForm.valid">
+
+        <button
+          type="submit"
+          mat-raised-button
+          class="main-button"
+          [disabled]="!triviaForm.valid"
+        >
           Let's Play!
         </button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 <questions [questions]="questions" [userName]="userName"></questions>

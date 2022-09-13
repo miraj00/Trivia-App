@@ -1,0 +1,27 @@
+.questions-container {
+  @apply w-[50vw] mx-auto;
+}
+
+.question-button {
+  @apply bg-pink-500 text-slate-200 m-5;
+}
+
+.question-button:hover {
+  @apply bg-gradient-to-br from-pink-300 text-white m-5;
+}
+
+.user-score {
+  @apply flex flex-row justify-between align-bottom;
+}
+
+.player-name {
+  @apply text-3xl bg-clip-text bg-gradient-to-tr from-purple-900;
+}
+
+.main-button {
+  @apply my-5 bg-fuchsia-700 w-[100%] text-slate-200;
+}
+
+.main-button:hover {
+  @apply text-white bg-gradient-to-br from-pink-300;
+}

@@ -34,6 +34,7 @@ export class QuestionsComponent implements OnInit, OnChanges {
   totalQuestions: number = 0;
 
   answeredQuestions = new Set();
+  currentQuestion: number = 0;
 
   showHighScores: boolean = false;
 
@@ -57,7 +58,9 @@ export class QuestionsComponent implements OnInit, OnChanges {
     this.answeredQuestions.add(index);
     if (event === this.questions[index].correctAnswer) {
       this.playerRightAnswers += 1;
+      this.currentQuestion += 1;
     } else {
+      this.currentQuestion += 1;
       this.playerRightAnswers -= 1;
       this.playerRightAnswers < 0
         ? (this.playerRightAnswers = 0)
