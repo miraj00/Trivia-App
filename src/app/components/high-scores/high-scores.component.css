@@ -34,3 +34,9 @@ td {
 .new-champion {
   @apply text-6xl text-transparent bg-clip-text bg-gradient-to-b from-orange-500 to-orange-200 font-extrabold;
 }
+
+.user-in-list {
+  @apply rounded-2xl bg-gradient-to-t from-sky-500 to-black;
+}
+
+

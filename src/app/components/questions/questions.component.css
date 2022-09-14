@@ -1,5 +1,5 @@
 .questions-container {
-  @apply w-[50vw] mx-auto border-double border-4 border-sky-500 rounded-2xl m-10 p-10 bg-opacity-5 bg-gradient-to-t from-sky-500 to-black;
+  @apply w-[50vw] mx-auto border-double border-4 border-sky-500 rounded-2xl m-10 p-10 bg-gradient-to-t from-sky-500 to-black;
 }
 
 .question-button {
