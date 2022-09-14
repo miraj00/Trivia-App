@@ -3,11 +3,11 @@
 }
 
 .finalScore {
-  @apply border-double border-4 border-orange-500 rounded-2xl m-10 p-5 bg-gradient-to-t from-orange-500 to-black;
+  @apply align-middle border-double border-4 border-orange-500 rounded-2xl m-10 p-5 bg-gradient-to-t from-orange-500 to-black;
 }
 
 .player-name {
-  @apply text-4xl font-extrabold underline underline-offset-8;
+  @apply text-4xl mt-5 font-extrabold underline underline-offset-8;
 }
 
 .highScores {

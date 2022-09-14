@@ -13,43 +13,43 @@ export class HighScoresComponent implements OnInit {
   highScores = [
     {
       name: 'Joker',
-      score: 100000,
+      score: 100,
     },
     {
       name: 'Ivy',
-      score: 65,
+      score: 40,
     },
     {
       name: 'Harley',
-      score: 199,
+      score: 90,
     },
     {
       name: 'Quinn',
-      score: 34,
+      score: 80,
     },
     {
       name: 'Batman',
-      score: 5,
+      score: 70,
     },
     {
       name: 'Rock',
-      score: 34356,
+      score: 30,
     },
     {
       name: 'Murica',
-      score: 565,
+      score: 20,
     },
     {
       name: 'Green',
-      score: 5343,
+      score: 10,
     },
     {
       name: 'Jason',
-      score: 343,
+      score: 0,
     },
     {
       name: 'Freddie',
-      score: 876,
+      score: 10,
     },
   ];
 
@@ -57,6 +57,10 @@ export class HighScoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopScores();
+    this.highScores.push({
+      name: this.userName!,
+      score: this.playerScore!,
+    });
     this.sortHighScores();
   }
 
