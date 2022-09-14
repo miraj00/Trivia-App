@@ -28,6 +28,7 @@ export class QuestionsComponent implements OnInit, OnChanges {
   ];
 
   @Input() userName: string = '';
+  @Input() difficulty: string = '';
 
   playerRightAnswers: number = 0;
   playerScore: number = 0;
@@ -37,11 +38,9 @@ export class QuestionsComponent implements OnInit, OnChanges {
   currentQuestion: number = 0;
 
   showHighScores: boolean = false;
+  scoreMultiplier: number = 1;
 
   constructor() {
-    for (let question of this.questions) {
-      console.log(question);
-    }
     this.answeredQuestions = new Set();
   }
 
@@ -56,6 +55,7 @@ export class QuestionsComponent implements OnInit, OnChanges {
 
   getSelectedResult(event: any, index: number) {
     this.answeredQuestions.add(index);
+    this.getMultiplier();
     if (event === this.questions[index].correctAnswer) {
       this.playerRightAnswers += 1;
       this.currentQuestion += 1;
@@ -70,7 +70,27 @@ export class QuestionsComponent implements OnInit, OnChanges {
   }
 
   calculateScore() {
-    this.playerScore = (this.playerRightAnswers / this.questions.length) * 100;
+    this.playerScore =
+      ((this.playerRightAnswers * this.scoreMultiplier) /
+        this.questions.length) *
+      100;
+  }
+
+  getMultiplier() {
+    switch (this.difficulty) {
+      case 'easy':
+        this.scoreMultiplier = 1;
+        break;
+      case 'medium':
+        this.scoreMultiplier = 3;
+        break;
+      case 'hard':
+        this.scoreMultiplier = 5;
+        break;
+      default:
+        this.scoreMultiplier = 1;
+    }
+    console.log(this.scoreMultiplier);
   }
 
   submitScore() {

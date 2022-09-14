@@ -2,12 +2,16 @@
   @apply w-[50vw] mx-auto;
 }
 
+.new-highScore {
+  @apply align-middle border-double border-4 border-orange-500 rounded-2xl m-10 p-5 bg-gradient-to-t from-orange-500 to-black;
+}
+
 .finalScore {
-  @apply border-double border-4 border-orange-500 rounded-2xl m-10 p-5 bg-gradient-to-t from-orange-500 to-black;
+  @apply align-middle border-double border-4 border-orange-500 rounded-2xl m-10 p-5;
 }
 
 .player-name {
-  @apply text-4xl font-extrabold underline underline-offset-8;
+  @apply text-4xl mt-5 font-extrabold underline underline-offset-8;
 }
 
 .highScores {
@@ -26,3 +30,13 @@ th,
 td {
   @apply w-52;
 }
+
+.new-champion {
+  @apply text-6xl text-transparent bg-clip-text bg-gradient-to-b from-orange-500 to-orange-200 font-extrabold;
+}
+
+.user-in-list {
+  @apply rounded-2xl bg-gradient-to-t from-sky-500 to-black;
+}
+
+
