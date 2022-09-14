@@ -33,7 +33,14 @@ export class HighScoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopScores();
+    this.sortScores();
   }
 
   getTopScores() {}
+
+  sortScores() {
+    this.highScores.sort((a, b) => {
+      return b.score - a.score;
+    });
+  }
 }
