@@ -15,7 +15,7 @@ export class DatabaseComponent implements OnInit {
   loading = true;
 
 
-  constructor(private databaseService: DatabaseService, private profileService: ProfileService) { }
+  constructor(private databaseService: DatabaseService) { }
 
   ngOnInit(): void {
     this.loadDatabase();
