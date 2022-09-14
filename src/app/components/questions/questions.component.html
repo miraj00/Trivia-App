@@ -1,14 +1,14 @@
 <div *ngIf="userName && !showHighScores" class="questions-container">
   <div class="user-score">
     <h1 class="player-name">{{ userName }}</h1>
-    <h3>Player Score: {{ playerScore > 0 ? playerScore : 0 }}</h3>
+    <h3>Score: {{ playerScore > 0 ? playerScore : 0 }}</h3>
   </div>
   <div *ngFor="let question of questions; index as i">
     <!-- <div *ngIf="!answeredQuestions.has(i)"> -->
     <div *ngIf="currentQuestion === i">
       <div>
+        <h2 class="underline underline-offset-8">{{ question.category }}</h2>
         <h1>{{ question.question }}</h1>
-        <h2>{{ question.category }}</h2>
       </div>
       <div>
         <button
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div *ngIf="currentQuestion === questions.length">
-    <h1>Congratulations!!</h1>
+    <h1 class="congrats">Congratulations!!</h1>
     <h2>Tiny Trivia Totalled</h2>
     <button mat-raised-button class="main-button" (click)="submitScore()">
       Submit Score

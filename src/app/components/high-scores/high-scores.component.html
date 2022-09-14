@@ -1,4 +1,26 @@
-<h1>{{ userName }}</h1>
-<h2>Player Score: {{ playerScore }}</h2>
-<br />
-<p>Show DB users here...</p>
+<div class="highScores-container">
+  <div class="finalScore">
+    <h1 class="player-name">{{ userName }}</h1>
+    <h2>Final Score: {{ playerScore }}</h2>
+  </div>
+
+  <div class="highScores">
+    <h1 class="highScores-title">TOP SCORES</h1>
+    <table class="scores-list">
+      <thead>
+        <tr>
+          <th>PLACE</th>
+          <th>PLAYER</th>
+          <th>SCORE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let score of highScores; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ score.name }}</td>
+          <td>{{ score.score }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
