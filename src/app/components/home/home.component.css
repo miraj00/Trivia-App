@@ -3,7 +3,11 @@
 }
 
 .title-container {
-  @apply font-extrabold h-16 m-16 text-transparent text-6xl bg-clip-text bg-gradient-to-br from-pink-300 to-purple-900 shadow-[0_35px_60px_-15px_rgba(125,0,145,1)] rounded-2xl;
+  @apply m-16 rounded-2xl;
+}
+
+.title {
+  @apply rounded-2xl h-28 font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-br  from-fuchsia-900 to-pink-500 shadow-[0_35px_60px_-15px_rgba(125,0,145,1)];
 }
 
 .form-container {

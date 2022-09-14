@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TriviaService } from 'src/app/services/trivia.service';
 
 @Component({
   selector: 'high-scores',
@@ -9,7 +10,30 @@ export class HighScoresComponent implements OnInit {
   @Input() userName: string | undefined;
   @Input() playerScore: number | undefined;
 
+  highScores = [
+    {
+      name: 'Someone',
+      score: 100000,
+    },
+    {
+      name: 'Test',
+      score: 5,
+    },
+    {
+      name: 'Else',
+      score: 199,
+    },
+    {
+      name: 'Person',
+      score: 777,
+    },
+  ];
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getTopScores();
+  }
+
+  getTopScores() {}
 }
