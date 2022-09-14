@@ -32,15 +32,9 @@ export class DatabaseComponent implements OnInit {
   removeScore(database: scoreDetails) {
     this.database = [];
     this.loading = true;
-    this.databaseService.removeScore(database.playerName).subscribe(() => {
-      this.loadDatabase();
-      // if (this.profileService.getPet() === pokemon.sprites.defaultFront) {
-      //   this.profileService.setPet(null);
-      });
-    }
+    this.databaseService.removeScore(database._id).subscribe(() => {
+    this.loadDatabase(); // reloading db
+    })
   
-
-  setPet(database: scoreDetails) {
-   //  this.profileService.setPet(pokemon.sprites.defaultFront);
-  }
+   }
 }

@@ -14,10 +14,10 @@ export class DatabaseService {
   private baseUrl = environment.databaseURL;
   private apiKey = environment.databaseKey;
  
-  private player: scoreDetails []= [
-    { "playerName": "Miraj", "score": 75 },
-    { "playerName": "Tito", "score": 98 }
-  ];
+  // private player: scoreDetails []= [
+  //   // {  "playerName": "Miraj", "score": 75 },
+  //   // { "playerName": "Tito", "score": 98 }
+  // ];
 
   constructor(private http: HttpClient) { }
 
@@ -26,16 +26,16 @@ export class DatabaseService {
       headers: { "x-apikey": this.apiKey }
     });
   }
-  addScore(pokemon: scoreDetails): Observable<scoreDetails> {
-    return this.http.post<scoreDetails>(`${this.baseUrl}`, pokemon, {
+  addScore(NewScore: scoreDetails): Observable<scoreDetails> {
+    return this.http.post<scoreDetails>(`${this.baseUrl}`, NewScore, {
       headers: { "x-apikey": this.apiKey }
     });
   }
-  removeScore(id?: string): Observable<void> {
-    if (!id) {
+  removeScore(_id?: string): Observable<void> {
+    if (!_id) {
       return of();
     }
-    return this.http.delete<void>(`${this.baseUrl}/${id}`, {
+    return this.http.delete<void>(`${this.baseUrl}/${_id}`, {
       headers: { "x-apikey": this.apiKey }
     });
   }
