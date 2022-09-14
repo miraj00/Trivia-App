@@ -53,6 +53,8 @@ export class HighScoresComponent implements OnInit {
     },
   ];
 
+  example = [];
+
   constructor() {}
 
   ngOnInit(): void {
