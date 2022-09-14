@@ -27,5 +27,5 @@
 }
 
 .congrats {
-  @apply text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-t from-pink-200 to-pink-500;
+  @apply text-4xl m-16 font-extrabold text-transparent bg-clip-text bg-gradient-to-t from-pink-200 to-pink-500;
 }

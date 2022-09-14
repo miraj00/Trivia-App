@@ -53,7 +53,7 @@ export class HighScoresComponent implements OnInit {
     },
   ];
 
-  example = [];
+  newHighScore: boolean = false;
 
   constructor() {}
 
@@ -74,5 +74,12 @@ export class HighScoresComponent implements OnInit {
         return b.score - a.score;
       })
       .slice(0, 5);
+    this.checkNewHighScore();
+  }
+
+  checkNewHighScore() {
+    if (this.highScores[0].name === this.userName) {
+      this.newHighScore = true;
+    }
   }
 }

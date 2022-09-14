@@ -2,8 +2,12 @@
   @apply w-[50vw] mx-auto;
 }
 
-.finalScore {
+.new-highScore {
   @apply align-middle border-double border-4 border-orange-500 rounded-2xl m-10 p-5 bg-gradient-to-t from-orange-500 to-black;
+}
+
+.finalScore {
+  @apply align-middle border-double border-4 border-orange-500 rounded-2xl m-10 p-5;
 }
 
 .player-name {
@@ -25,4 +29,8 @@
 th,
 td {
   @apply w-52;
+}
+
+.new-champion {
+  @apply text-6xl text-transparent bg-clip-text bg-gradient-to-b from-orange-500 to-orange-200 font-extrabold;
 }
