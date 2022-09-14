@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   @Input() difficulties: string[] = [];
   @Input() questions: Question[] = [];
   @Output() userName: string = '';
+ 
   triviaForm: FormGroup;
 
   constructor(private trivia: TriviaService) {
