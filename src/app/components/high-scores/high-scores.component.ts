@@ -45,6 +45,8 @@ export class HighScoresComponent implements OnInit, OnChanges {
   checkNewHighScore() {
     if (this.database[0]?.playerName === this.userName) {
       this.newHighScore = true;
+    } else {
+      this.newHighScore = false;
     }
   }
 
