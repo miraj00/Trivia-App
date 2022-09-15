@@ -43,8 +43,16 @@ td {
   /* @apply ; */
 }
 
+.delete-button {
+  @apply bg-red-500 text-slate-200;
+}
+
+.delete-button:hover {
+  @apply text-white bg-gradient-to-br from-pink-300;
+}
+
 .restart-button {
-  @apply m-10 my-5 bg-fuchsia-700 text-slate-200;
+  @apply w-[90%] mb-10 bg-fuchsia-700 text-slate-200;
 }
 
 .restart-button:hover {
