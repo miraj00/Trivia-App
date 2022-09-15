@@ -13,8 +13,7 @@ export class HighScoresComponent implements OnInit {
   @Input() userName: string | undefined;
   @Input() playerScore: number | undefined;
 
-  database: scoreDetails[] = [];
-  loading = true;
+  @Input() database: scoreDetails[] = [];
 
   newHighScore: boolean = false;
 
@@ -22,12 +21,6 @@ export class HighScoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopScores();
-    // this.highScores.push({
-    //   name: this.userName!,
-    //   score: this.playerScore!,
-    // });
-
-    this.loadDatabase();
     this.sortHighScores();
   }
 
@@ -39,7 +32,6 @@ export class HighScoresComponent implements OnInit {
         return b.highscore - a.highscore;
       })
       .slice(0, 15);
-    this.checkNewHighScore();
   }
 
   checkNewHighScore() {
@@ -48,20 +40,15 @@ export class HighScoresComponent implements OnInit {
     }
   }
 
-  loadDatabase() {
-    this.loading = true;
-    this.databaseService.getScores().subscribe((newDatabase) => {
-      this.database = newDatabase;
-      this.loading = false;
-      this.sortHighScores();
-    });
-  }
-
   removeScore(database: scoreDetails) {
     this.database = [];
-    this.loading = true;
-    this.databaseService.removeScore(database._id).subscribe(() => {
-      this.loadDatabase(); // reloading db
+    this.databaseService.removeScore(database._id).subscribe(() => {});
+    this.loadDatabase();
+  }
+
+  loadDatabase() {
+    this.databaseService.getScores().subscribe((newDatabase) => {
+      this.database = newDatabase;
     });
   }
 }
