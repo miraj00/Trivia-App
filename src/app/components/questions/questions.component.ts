@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Question } from 'src/app/interfaces/question';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'questions',
@@ -40,7 +41,7 @@ export class QuestionsComponent implements OnInit, OnChanges {
   showHighScores: boolean = false;
   scoreMultiplier: number = 1;
 
-  constructor() {
+  constructor(private databaseService: DatabaseService) {
     this.answeredQuestions = new Set();
   }
 
@@ -96,9 +97,13 @@ export class QuestionsComponent implements OnInit, OnChanges {
   submitScore() {
     this.answeredQuestions = new Set();
     this.showHighScores = true;
-
-
-
-
+    this.addScore();
   }
+
+  addScore() {
+      this.databaseService.addScore(this.userName, this.playerScore).subscribe(() => {
+           //this.loadDatabase(); // reloading db
+    });
+  }
+
 }

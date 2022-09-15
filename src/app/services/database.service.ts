@@ -26,7 +26,8 @@ export class DatabaseService {
       headers: { "x-api-key": this.apiKey }
     });
   }
-  addScore(NewScore: scoreDetails): Observable<scoreDetails> {
+  addScore(userName:string, playerScore:number): Observable<scoreDetails> {
+    let NewScore : scoreDetails = { playerName: userName, highscore: playerScore }
     return this.http.post<scoreDetails>(`${this.baseUrl}`, NewScore, {
       headers: { "x-api-key": this.apiKey }
     });
@@ -39,6 +40,7 @@ export class DatabaseService {
       headers: { "x-api-key": this.apiKey }
     });
   }
+
 
 
 }

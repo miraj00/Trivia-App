@@ -53,6 +53,7 @@ export class HighScoresComponent implements OnInit {
     this.databaseService.getScores().subscribe((newDatabase) => {
       this.database = newDatabase;
       this.loading = false;
+      this.sortHighScores();
     });
   }
 
