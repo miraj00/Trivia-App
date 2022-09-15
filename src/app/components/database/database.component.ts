@@ -29,6 +29,7 @@ export class DatabaseComponent implements OnInit {
     });
   }
 
+  
   removeScore(database: scoreDetails) {
     this.database = [];
     this.loading = true;

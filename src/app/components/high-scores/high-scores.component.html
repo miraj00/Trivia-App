@@ -17,12 +17,13 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="let score of highScores; index as i"
-          [ngClass]="{ 'user-in-list': score.name === userName }"
+          *ngFor="let score of database; index as i"
+          [ngClass]="{ 'user-in-list': score.playerName === userName }"
         >
           <td>{{ i + 1 }}</td>
-          <td>{{ score.name }}</td>
-          <td>{{ score.score }}</td>
+          <td>{{ score.playerName }}</td>
+          <td>{{ score.highscore }}</td>
+          <td><button class="btn btn-secondary" (click)="removeScore(score)">Remove</button></td>
         </tr>
       </tbody>
     </table>

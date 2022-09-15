@@ -96,7 +96,9 @@ export class QuestionsComponent implements OnInit, OnChanges {
   submitScore() {
     this.answeredQuestions = new Set();
     this.showHighScores = true;
-    // this.playerRightAnswers = 0;
-    // this.calculateScore();
+
+
+
+
   }
 }

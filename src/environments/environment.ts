@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   triviaURL: 'https://the-trivia-api.com/api/',
   databaseURL: 'https://trivia-8125.restdb.io/rest/highscores',
-  databaseKey: '14284f7472d167d9ccb5dfe612e77321e9edb',
+  databaseKey: '63226cd84b91c00c197f61e6',
 };
 
 /*

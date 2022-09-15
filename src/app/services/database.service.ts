@@ -23,12 +23,12 @@ export class DatabaseService {
 
   getScores(): Observable<scoreDetails[]> {
     return this.http.get<scoreDetails[]>(`${this.baseUrl}`, {
-      headers: { "x-apikey": this.apiKey }
+      headers: { "x-api-key": this.apiKey }
     });
   }
   addScore(NewScore: scoreDetails): Observable<scoreDetails> {
     return this.http.post<scoreDetails>(`${this.baseUrl}`, NewScore, {
-      headers: { "x-apikey": this.apiKey }
+      headers: { "x-api-key": this.apiKey }
     });
   }
   removeScore(_id?: string): Observable<void> {
@@ -36,7 +36,7 @@ export class DatabaseService {
       return of();
     }
     return this.http.delete<void>(`${this.baseUrl}/${_id}`, {
-      headers: { "x-apikey": this.apiKey }
+      headers: { "x-api-key": this.apiKey }
     });
   }
 

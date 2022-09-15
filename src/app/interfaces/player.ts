@@ -6,7 +6,7 @@ export interface Player {
 
 //db api
 export interface scoreDetails {
-    _id: string;
+    _id: string,
     playerName: string,
 	score: number
 }
