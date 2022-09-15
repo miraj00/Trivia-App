@@ -16,49 +16,6 @@ export class HighScoresComponent implements OnInit {
   database: scoreDetails[] = [];
   loading = true;
 
-  // highScores = [
-  //   {
-  //     name: 'Joker',
-  //     score: 100,
-  //   },
-  //   {
-  //     name: 'Ivy',
-  //     score: 40,
-  //   },
-  //   {
-  //     name: 'Harley',
-  //     score: 90,
-  //   },
-  //   {
-  //     name: 'Quinn',
-  //     score: 80,
-  //   },
-  //   {
-  //     name: 'Batman',
-  //     score: 70,
-  //   },
-  //   {
-  //     name: 'Rock',
-  //     score: 30,
-  //   },
-  //   {
-  //     name: 'Murica',
-  //     score: 20,
-  //   },
-  //   {
-  //     name: 'Green',
-  //     score: 10,
-  //   },
-  //   {
-  //     name: 'Jason',
-  //     score: 0,
-  //   },
-  //   {
-  //     name: 'Freddie',
-  //     score: 10,
-  //   },
-  // ];
-
   newHighScore: boolean = false;
 
   constructor(private databaseService: DatabaseService) {}
@@ -69,7 +26,7 @@ export class HighScoresComponent implements OnInit {
     //   name: this.userName!,
     //   score: this.playerScore!,
     // });
-   
+
     this.loadDatabase();
     this.sortHighScores();
   }
@@ -79,7 +36,7 @@ export class HighScoresComponent implements OnInit {
   sortHighScores() {
     this.database = this.database
       .sort((a, b) => {
-        return b.score - a.score;
+        return b.highscore - a.highscore;
       })
       .slice(0, 15);
     this.checkNewHighScore();
@@ -91,10 +48,9 @@ export class HighScoresComponent implements OnInit {
     }
   }
 
-
   loadDatabase() {
     this.loading = true;
-    this.databaseService.getScores().subscribe(newDatabase => {
+    this.databaseService.getScores().subscribe((newDatabase) => {
       this.database = newDatabase;
       this.loading = false;
     });
@@ -104,15 +60,7 @@ export class HighScoresComponent implements OnInit {
     this.database = [];
     this.loading = true;
     this.databaseService.removeScore(database._id).subscribe(() => {
-    this.loadDatabase(); // reloading db
-    })
-  
-   }
-
-
-
-
-
-
-
+      this.loadDatabase(); // reloading db
+    });
+  }
 }
