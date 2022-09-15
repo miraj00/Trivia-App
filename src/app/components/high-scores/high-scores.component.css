@@ -39,4 +39,14 @@ td {
   @apply rounded-2xl bg-gradient-to-t from-sky-500 to-black;
 }
 
+.restart-button {
+  /* @apply ; */
+}
 
+.restart-button {
+  @apply m-10 my-5 bg-fuchsia-700 text-slate-200;
+}
+
+.restart-button:hover {
+  @apply text-white bg-gradient-to-br from-pink-300;
+}

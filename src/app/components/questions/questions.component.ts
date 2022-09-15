@@ -43,6 +43,9 @@ export class QuestionsComponent implements OnInit, OnChanges {
   scoreMultiplier: number = 1;
 
   database: scoreDetails[] = [];
+
+  newHighScore: boolean = false;
+
   constructor(private databaseService: DatabaseService) {
     this.answeredQuestions = new Set();
   }
@@ -113,6 +116,22 @@ export class QuestionsComponent implements OnInit, OnChanges {
   loadDatabase() {
     this.databaseService.getScores().subscribe((newDatabase) => {
       this.database = newDatabase;
+      this.sortHighScores();
     });
+  }
+
+  sortHighScores() {
+    this.database = this.database
+      .sort((a, b) => {
+        return b.highscore - a.highscore;
+      })
+      .slice(0, 15);
+    this.checkNewHighScore();
+  }
+
+  checkNewHighScore() {
+    if (this.database[0]?.playerName === this.userName) {
+      this.newHighScore = true;
+    }
   }
 }

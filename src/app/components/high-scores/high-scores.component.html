@@ -23,9 +23,24 @@
           <td>{{ i + 1 }}</td>
           <td>{{ score.playerName }}</td>
           <td>{{ score.highscore }}</td>
-          <td><button class="btn btn-secondary" (click)="removeScore(score)">Remove</button></td>
+          <td>
+            <button
+              mat-raised-button
+              class="delete-button"
+              (click)="removeScore(score)"
+            >
+              Remove
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
+  <button
+    mat-raised-button
+    class="restart-button"
+    onClick="window.location.reload();"
+  >
+    RESTART
+  </button>
 </div>

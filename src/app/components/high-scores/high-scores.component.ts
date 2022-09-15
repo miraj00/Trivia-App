@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { TriviaService } from 'src/app/services/trivia.service';
 
 import { scoreDetails } from 'src/app/interfaces/player';
@@ -9,22 +15,23 @@ import { DatabaseService } from 'src/app/services/database.service';
   templateUrl: './high-scores.component.html',
   styleUrls: ['./high-scores.component.css'],
 })
-export class HighScoresComponent implements OnInit {
+export class HighScoresComponent implements OnInit, OnChanges {
   @Input() userName: string | undefined;
   @Input() playerScore: number | undefined;
 
   @Input() database: scoreDetails[] = [];
 
-  newHighScore: boolean = false;
+  @Input() newHighScore: boolean = false;
 
   constructor(private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
-    this.getTopScores();
     this.sortHighScores();
   }
 
-  getTopScores() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
 
   sortHighScores() {
     this.database = this.database
@@ -32,6 +39,7 @@ export class HighScoresComponent implements OnInit {
         return b.highscore - a.highscore;
       })
       .slice(0, 15);
+    this.checkNewHighScore();
   }
 
   checkNewHighScore() {
@@ -42,13 +50,15 @@ export class HighScoresComponent implements OnInit {
 
   removeScore(database: scoreDetails) {
     this.database = [];
-    this.databaseService.removeScore(database._id).subscribe(() => {});
-    this.loadDatabase();
+    this.databaseService.removeScore(database._id).subscribe(() => {
+      this.loadDatabase();
+    });
   }
 
   loadDatabase() {
     this.databaseService.getScores().subscribe((newDatabase) => {
       this.database = newDatabase;
+      this.sortHighScores();
     });
   }
 }
