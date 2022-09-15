@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Player } from './interfaces/player';
-import { Question } from './interfaces/question';
 import { TriviaService } from './services/trivia.service';
 
 @Component({
